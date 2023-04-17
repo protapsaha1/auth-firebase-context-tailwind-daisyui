@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { userContext } from '../../providers/ProvidersAuth';
 
 const Login = () => {
-    const { userSignUp } = useContext(userContext)
+    const { userSignUp, signUpGoogle } = useContext(userContext)
 
     const handleLogin = event => {
         event.preventDefault();
@@ -16,6 +16,7 @@ const Login = () => {
             .then(result => {
                 const loggedInUser = result.user
                 console.log(loggedInUser)
+                form.reset();
             })
 
             .catch(error => {
@@ -23,6 +24,16 @@ const Login = () => {
             })
 
 
+    }
+
+    const handleGoogle = () => {
+        signUpGoogle()
+            .then(() => {
+                
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
     return (
         <div className='card w-96 bg-base-100 shadow-xl mx-auto p-4 mt-10'>
@@ -47,6 +58,7 @@ const Login = () => {
                     </label>
                 </div>
                 <button className="btn btn-wide mx-12 my-4 ">Login</button>
+                <button onClick={handleGoogle} className="btn btn-wide mx-12 my-4 ">Google</button>
 
             </form>
             <p><small>Forget password? <a className='text-red-600 link link-hover'>Reset password</a></small></p>
