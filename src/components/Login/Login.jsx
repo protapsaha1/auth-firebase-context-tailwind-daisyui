@@ -46,7 +46,8 @@ const Login = () => {
                         <input type="password" name="password" id="user-password" placeholder="your password" className="input input-bordered" required />
                     </label>
                 </div>
-                <input type="submit" value="Submit" className='border bg-blue-600 py-2 px-3 text-white rounded-lg mt-3 mx-12' />
+                <button className="btn btn-wide mx-12 my-4 ">Login</button>
+
             </form>
             <p><small>Forget password? <a className='text-red-600 link link-hover'>Reset password</a></small></p>
             <p><small>If new Create Account? <Link to="/register" className='text-sky-800 font-bold text-xl'>Sign up</Link></small></p>
